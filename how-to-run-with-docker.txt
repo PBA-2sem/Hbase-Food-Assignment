@@ -1,0 +1,16 @@
+Guide til Hbase via Docker. (https://github.com/dajobe/hbase-docker) har tweeket den lidt, så man ikke skal ind og
+rode ved ens lokale dns.
+
+- docker pull dajobe/hbase
+
+- id=$(docker run --name=hbase-docker1 -h hbase-docker -d -p 16000:16000 -p 9090:9090 -p 8085:8085 -p 8080:8080 -p 2181:2181 -p 9095:9095 -p 16010:16010 -v $data_dir:/data dajobe/hbase)
+
+Nu kan man tilgå der forskellige porte via localhost fra overstående kommando i browseren.
+
+- For at tilgå Hbase shell skal man køre følgende kommando i cmd - ikke i bash, det virker ikke (for mig i hvertfald)
+
+docker run --rm -it --link $id:hbase-docker dajobe/hbase hbase shell
+
+$id er variablen, som har gemt hbase container id i sig i linje 5. Syntaksen for linje 5 er til bash dog. Jeg kørte de første 2 kommandoer i bash og den sidste i cmd. 
+Så du skal bare lige kopiere værdien af $id variablen over i overstående kommando (echo $id), og så kører den i cmd :=)
+
