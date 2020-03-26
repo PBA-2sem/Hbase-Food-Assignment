@@ -4,7 +4,6 @@
 
 This guide is based on https://github.com/dajobe/hbase-docker, however we tweaked it a bit so we didn't have to configure our local DNS.
 
-- 
 - docker pull dajobe/hbase
 - id=$(docker run --name=hbase-docker1 -h hbase-docker -d -p 16000:16000 -p 9090:9090 -p 8085:8085 -p 8080:8080 -p 2181:2181 -p 9095:9095 -p 16010:16010 dajobe/hbase)
 
@@ -25,6 +24,7 @@ Previous command should open a live terminal allowing you to execute hbase comma
 Examples 
 ```shell 
   scan 'Food_Display_Table', {FILTER => "ValueFilter (=,'binaryprefix:YOUR-SEARCH-VALUE')"} 
-  scan 'Food_Display_Table', {FILTER=>"SingleColumnValueFilter('cf','ATTRIBUTE-NAME',=,'binary:ATTRIBUTE_VALUE')"} ```
+  scan 'Food_Display_Table', {FILTER=>"SingleColumnValueFilter('cf','ATTRIBUTE-NAME',=,'binary:ATTRIBUTE_VALUE')"}
+   ```
 
 
