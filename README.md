@@ -27,4 +27,14 @@ Examples
   scan 'Food_Display_Table', {FILTER=>"SingleColumnValueFilter('cf','ATTRIBUTE-NAME',=,'binary:ATTRIBUTE_VALUE')"}
    ```
 
+## Answers to assignment
 
+- Create a new HBase table called foods with a single column family to store the facts. 
+We called this **Food_Display_Table**
+- What can be used for the row key?
+We considered using **Food_Code**, however we found out that there were duplicates, so we chose to make a new unique id for each **Food_Display_Row**
+- What column family options make sense for this data?
+We chose to have on column family representing an entire row.
+
+- Create code for importing the food data into the new table.
+This can be found in **program.js**
